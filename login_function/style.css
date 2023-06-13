@@ -85,6 +85,10 @@ input[type="submit"]{
     background-color: black;
 }
 
+#naver_id_login {
+    margin-top: 18px;
+}
+
 @media(max-width:700px){
    header {
     padding: 40px;
