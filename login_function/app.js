@@ -27,11 +27,10 @@ submit_btn.setAttribute("value","로그인");
 submit_btn.setAttribute("disabled", "");
 submit_btn.classList.add("disabled_btn");
 
-const naver_login = document.createElement("div");
-naver_login.setAttribute("id", "naver_id_login");
+const login_btn_wrapper = document.getElementById("login_btn_wrapper");
 
 id_pd_wrapper.append(id,pd);
-form.append(id_pd_wrapper, submit_btn, naver_login);
+form.append(id_pd_wrapper, submit_btn, login_btn_wrapper);
 form_wrapper.append(form);
 header.appendChild(h1);
 root.append(header, form_wrapper);

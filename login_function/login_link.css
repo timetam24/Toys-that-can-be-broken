@@ -1,0 +1,39 @@
+#login_btn_wrapper {
+    margin-top: 25px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 10%);
+    justify-content: center;
+    column-gap: 45px;
+}
+
+#login_btn_wrapper a {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px #cbcbcb;
+    border: 0px;
+    cursor: pointer;
+}
+
+#login_btn_wrapper a:nth-of-type(2) {
+    background-color: #ffea3a;
+    border-color: #ffea3a;
+}
+
+#login_btn_wrapper a:nth-of-type(3) {
+    background-color: white;
+    padding: 5px;
+}
+
+#login_btn_wrapper a:last-of-type {
+    background-color: black;
+    border-color: black;
+}
+
+#login_btn_wrapper img {
+    width: 100%;
+}
