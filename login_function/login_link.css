@@ -24,11 +24,6 @@
     border-color: #ffea3a;
 }
 
-#login_btn_wrapper a:nth-of-type(3) {
-    background-color: white;
-    padding: 5px;
-}
-
 #login_btn_wrapper a:last-of-type {
     background-color: black;
     border-color: black;

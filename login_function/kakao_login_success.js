@@ -27,7 +27,7 @@ function kakaoLogout() {
     Kakao.Auth.logout(function (response) {
         if(response){
             alert("카카오톡 로그아웃 처리되었습니다.");
-            window.location.href = 'http://127.0.0.1:5500/login_function/index.html'
+            window.location.href = 'http://localhost:5500/login_function/index.html'
         }
     });
 }

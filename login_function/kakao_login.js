@@ -12,7 +12,7 @@ window.Kakao.init('59e902e484ff6382c41c041026e55a9d');
                         success: (res) => {
                             const kakao_account = res.kakao_account;
                             console.log(kakao_account)
-                    window.location.href = 'http://127.0.0.1:5500/login_function/kakao_login_success.html?name='+ kakao_account.profile.nickname + '&profileImgUrl=' + kakao_account.profile.profile_image_url;
+                    window.location.href = 'http://localhost:5500/login_function/kakao_login_success.html?name='+ kakao_account.profile.nickname + '&profileImgUrl=' + kakao_account.profile.profile_image_url;
                         }
                     });
                 },
