@@ -1,6 +1,5 @@
-const clientId = 'Iv1.a857d355ab4bcc14';
-const clientSecret = '4b652f59d43c5c8965497b0280204e5844d78e2a';
-// 바꿀 예정!
+const clientId = config.githubClientID;
+const clientSecret = config.githubClientSecret;
 const redirectUri = 'http://localhost:5500/login_function/github_login_success.html';
 
 const urlParams = new URLSearchParams(window.location.search);

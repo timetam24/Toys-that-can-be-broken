@@ -18,7 +18,7 @@ linkLogoutKakaoPage.innerText="카카오 로그아웃";
 wrapperKakaoPage.append(imgKakaoPage, h1KakaoPage);
 bodyKakaoPage.append(wrapperKakaoPage, linkLogoutKakaoPage);
 
-window.Kakao.init('59e902e484ff6382c41c041026e55a9d');
+window.Kakao.init(config.kakakoAppJavaScriptKey);
 function kakaoLogout() {
     if (!Kakao.Auth.getAccessToken()) {
         alret('Not logged in.');
