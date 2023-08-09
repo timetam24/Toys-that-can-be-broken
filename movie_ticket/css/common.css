@@ -23,11 +23,11 @@ button:enabled {
 .container {
   width: 1060px;
   background-color: var(--bg-gray);
-  border: 3px solid var(--main-gray);
-  border-radius: 20px;
+  border: 2px solid var(--main-gray);
+  border-radius: 15px;
   margin: 91px auto;
-  background-image: url(../images/background.png);
-  background-size: 1060px 1170px;
+  /* background-image: url(../images/background.png);
+  background-size: 1060px 1170px; */
 }
 
 /* header */
