@@ -8,14 +8,22 @@ const putDDayInsideMovieCard = () => {
   [...openingDays].forEach((day) => {
     const openDay = new Date(`${day.dateTime} 00:00:00`);
     const diffDay = Math.floor((openDay - today) / (1000 * 60 * 60 * 24)) + 1;
-    ddayArray[ddayArray.length] = diffDay;
+
+    diffDay <= 0
+      ? (ddayArray[ddayArray.length] = null)
+      : (ddayArray[ddayArray.length] = diffDay);
   });
 
   movieCards.forEach((card, index) => {
     const $span = document.createElement("span");
     $span.className = "d-day";
-    $span.innerText = `D-${ddayArray[index]}`;
-    card.appendChild($span);
+
+    if (ddayArray[index] === null) {
+      return;
+    } else {
+      $span.innerText = `D-${ddayArray[index]}`;
+      card.appendChild($span);
+    }
   });
 };
 

@@ -1,0 +1,46 @@
+main {
+  position: relative;
+}
+
+.evaluate-type {
+  position: absolute;
+  top: -25px;
+  right: 10px;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.evaluate-type::before {
+  content: "";
+  display: block;
+  width: 0.3em;
+  height: 0.3em;
+  transform: rotate(135deg);
+  border: 2px solid #000;
+  border-width: 2px 2px 0 0;
+  position: absolute;
+  left: -13px;
+  top: 6px;
+}
+
+.rank {
+  display: block;
+  height: 28px;
+  margin-bottom: 4px;
+  background: #333333;
+  color: #ffffff;
+  font-size: 19px;
+  text-align: center;
+  line-height: 28px;
+  word-break: break-all;
+}
+
+.movie-card:first-of-type .rank,
+.movie-card:nth-of-type(2) .rank,
+.movie-card:nth-of-type(3) .rank {
+  background: #fb4357;
+}
+
+.movie-card-inner img {
+  border-radius: 0;
+}

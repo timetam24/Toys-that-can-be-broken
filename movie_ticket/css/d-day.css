@@ -1,0 +1,15 @@
+.movie-info {
+  position: relative;
+}
+
+.d-day {
+  position: absolute;
+  right: 0;
+  top: -34px;
+  padding: 2px 5px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fc4c4c;
+  border: 1px solid #fd9494;
+  border-radius: 0.85rem;
+}
