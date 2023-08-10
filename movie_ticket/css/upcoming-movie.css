@@ -1,0 +1,14 @@
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px 6px;
+}
+
+.movie-info li:nth-child(3) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.6;
+  height: calc(1em * 1.6 * 2);
+}
