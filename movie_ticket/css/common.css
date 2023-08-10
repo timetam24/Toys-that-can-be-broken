@@ -26,7 +26,7 @@ button:enabled {
   border: 2px solid var(--main-gray);
   border-radius: 15px;
   margin: 91px auto;
-  /* background-image: url(../images/background.png);
+  /* background-image: url(../images/current-movie/background.png);
   background-size: 1060px 1170px; */
 }
 
@@ -59,7 +59,7 @@ header {
   color: var(--dark-gray);
 }
 
-.menu-list li:first-child a {
+.menu-list .current-menu {
   font-weight: 900;
   color: #000;
 }
