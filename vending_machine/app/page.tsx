@@ -3,24 +3,24 @@ import data from "./data";
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-white md:bg-[#eae8fe]">
       <h1>
         <Image
-          className="logo"
-          src="/cola-logo.png"
+          className="max-w-[50%] mx-auto"
+          src="/cola-logo.svg"
           alt="Cola Cola Logo"
           width={386}
           height={180}
           priority
         />
       </h1>
-      <main>
+      <main className="w-[748px] max-w-full my-5 mx-auto grid md:grid-cols-2 md:grid-rows-[50px_auto] md:gap-y-5 md:gap-x-7 md:my-16 md:mx-auto ">
         <section className="section1">
           <h2 className="a11y-hidden">판매음료</h2>
           <ul className="cola-list">
             {data.map((cola) => (
               <li key={cola.id}>
-                <button type="button" className="btn-cola">
+                <button type="button" className="btn-cola on">
                   <Image
                     src={cola.src}
                     alt={cola.name}
@@ -76,6 +76,6 @@ export default function Home() {
           <p className="total-price">총금액 : 9,000원</p>
         </section>
       </main>
-    </>
+    </div>
   );
 }
