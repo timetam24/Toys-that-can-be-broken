@@ -7,7 +7,8 @@ export default function Home() {
   return (
     <>
       <Wrapper>
-        <Hello name="react" color="blue" />
+        <Hello name="react" color="blue" isSpecial />
+        {/* 컴포넌트에서 props 값 설정 생략 => true로 설정한 것으로 간주 */}
         <Hello color="yellow" />
       </Wrapper>
     </>
