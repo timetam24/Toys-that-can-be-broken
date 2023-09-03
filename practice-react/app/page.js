@@ -1,3 +1,5 @@
+"use client";
+import React, { useRef } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Hello from "../components/Hello";
@@ -8,6 +10,30 @@ import UserList from "@/components/UserList";
 import SongList from "@/components/SongList";
 
 export default function Home() {
+  const users = [
+    {
+      id: 1,
+      username: "velopert",
+      email: "public.velopert@gmail.com",
+    },
+    {
+      id: 2,
+      username: "tester",
+      email: "tester@example.com",
+    },
+    {
+      id: 3,
+      username: "liz",
+      email: "liz@example.com",
+    },
+  ];
+
+  const nextId = useRef(4);
+  const onCreate = () => {
+    // 나중에 구현 할 배열에 항목 추가하는 로직
+    nextId.current += 1;
+  };
+
   return (
     <>
       <Wrapper>
@@ -17,7 +43,7 @@ export default function Home() {
       </Wrapper>
       <Counter />
       <InputSample />
-      <UserList />
+      <UserList users={users} />
       <SongList />
     </>
   );
