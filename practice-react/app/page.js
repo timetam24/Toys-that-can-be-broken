@@ -5,6 +5,7 @@ import Wrapper from "@/components/Wrapper";
 import Counter from "@/components/Counter";
 import InputSample from "@/components/InputSample";
 import UserList from "@/components/UserList";
+import SongList from "@/components/SongList";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Counter />
       <InputSample />
       <UserList />
+      <SongList />
     </>
   );
 }
