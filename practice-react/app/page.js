@@ -4,6 +4,7 @@ import Hello from "../components/Hello";
 import Wrapper from "@/components/Wrapper";
 import Counter from "@/components/Counter";
 import InputSample from "@/components/InputSample";
+import UserList from "@/components/UserList";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       </Wrapper>
       <Counter />
       <InputSample />
+      <UserList />
     </>
   );
 }
