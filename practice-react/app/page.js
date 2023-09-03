@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Hello from "../components/Hello";
 import Wrapper from "@/components/Wrapper";
 import Counter from "@/components/Counter";
+import InputSample from "@/components/InputSample";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Hello color="yellow" />
       </Wrapper>
       <Counter />
+      <InputSample />
     </>
   );
 }
