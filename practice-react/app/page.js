@@ -29,6 +29,9 @@ export default function Home() {
   ];
 
   const nextId = useRef(4);
+  // useRef Hook은 DOM을 선택하는 용도 외에도 컴포넌트 안에서 조회 및 수정할 수 있는 변수를 관리한다. useRef로 관리하는 변수는 값이 바뀌어도 컴포넌트가 리렌더링되지 않는다. 리액트 컴포넌트에서의 상태는 상태를 바꾸는 함수를 호출하고 나서 그 다음 렌더링 이후로 업데이트된 상태를 조회 할 수 있는 반면, useRef로 관리하고 있는 변수는 설정 후 "바로" 조회가 가능하다.
+  // useRef 안 파라미터 값이 .current값의 기본값이 된다. 그리고 이 값을 수정할 때에는 .current값을 수정하면 되고 조회할 때에는 .current를 조회하면 된다.
+
   const onCreate = () => {
     // 나중에 구현 할 배열에 항목 추가하는 로직
     nextId.current += 1;
