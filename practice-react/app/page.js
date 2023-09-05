@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Hello from "../components/Hello";
@@ -8,9 +8,22 @@ import Counter from "@/components/Counter";
 import InputSample from "@/components/InputSample";
 import UserList from "@/components/UserList";
 import SongList from "@/components/SongList";
+import CreateUser from "@/components/CreateUser";
 
 export default function Home() {
-  const users = [
+  const [inputs, setInputs] = useState({
+    username: "",
+    email: "",
+  });
+  const { username, email } = inputs;
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
+  };
+  const [users, setUsers] = useState([
     {
       id: 1,
       username: "velopert",
@@ -26,7 +39,7 @@ export default function Home() {
       username: "liz",
       email: "liz@example.com",
     },
-  ];
+  ]);
 
   const nextId = useRef(4);
   // useRef Hook은 DOM을 선택하는 용도 외에도 컴포넌트 안에서 조회 및 수정할 수 있는 변수를 관리한다. useRef로 관리하는 변수는 값이 바뀌어도 컴포넌트가 리렌더링되지 않는다. 리액트 컴포넌트에서의 상태는 상태를 바꾸는 함수를 호출하고 나서 그 다음 렌더링 이후로 업데이트된 상태를 조회 할 수 있는 반면, useRef로 관리하고 있는 변수는 설정 후 "바로" 조회가 가능하다.
@@ -34,6 +47,18 @@ export default function Home() {
 
   const onCreate = () => {
     // 나중에 구현 할 배열에 항목 추가하는 로직
+    const user = {
+      id: nextId.current,
+      username,
+      email,
+    };
+    setUsers([...users, user]);
+
+    setInputs({
+      username: "",
+      email: "",
+    });
+
     nextId.current += 1;
   };
 
@@ -46,6 +71,12 @@ export default function Home() {
       </Wrapper>
       <Counter />
       <InputSample />
+      <CreateUser
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+      />
       <UserList users={users} />
       <SongList />
     </>
