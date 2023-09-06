@@ -28,16 +28,19 @@ export default function Home() {
       id: 1,
       username: "velopert",
       email: "public.velopert@gmail.com",
+      active: true,
     },
     {
       id: 2,
       username: "tester",
       email: "tester@example.com",
+      active: false,
     },
     {
       id: 3,
       username: "liz",
       email: "liz@example.com",
+      active: false,
     },
   ]);
 
@@ -63,9 +66,17 @@ export default function Home() {
   };
 
   const onRemove = (id) => {
-    // 배열에 있는 항목을 제거할 때에는, 추가할 때와 마찬가지로 불변성을 지켜가면서 업데이트를 해주어야 한다.불변성을 지키면서 특정 원소를 배열에서 제거하기 위해서는 filter 배열 내장 함수를 사용하는 것이 가장 편하다. 이 함수는 배열에서 특정 조건이 만족하는 원소들만 추출하여 '새로운 배열'을 만들어준다.
+    // 배열에 있는 항목을 제거할 때에는, 추가할 때와 마찬가지로 불변성을 지켜가면서 업데이트를 해줘야 한다. 불변성을 지키면서 특정 원소를 배열에서 제거하기 위해서는 filter 배열 내장 함수를 사용하는 것이 가장 편하다. 이 함수는 배열에서 특정 조건이 만족하는 원소들만 추출하여 '새로운 배열'을 만들어준다.
     // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
     setUsers(users.filter((user) => user.id !== id));
+  };
+
+  const onToggle = (id) => {
+    setUsers(
+      users.map((user) =>
+        user.id === id ? { ...user, active: !user.active } : user
+      )
+    );
   };
 
   return (
@@ -83,7 +94,7 @@ export default function Home() {
         onChange={onChange}
         onCreate={onCreate}
       />
-      <UserList users={users} onRemove={onRemove} />
+      <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
       <SongList />
     </>
   );
