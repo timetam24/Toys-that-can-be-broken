@@ -9,6 +9,7 @@ import InputSample from "@/components/InputSample";
 import UserList from "@/components/UserList";
 import SongList from "@/components/SongList";
 import CreateUser from "@/components/CreateUser";
+import ArrayRender from "@/components/ArrayRender";
 
 export default function Home() {
   const [inputs, setInputs] = useState({
@@ -96,6 +97,7 @@ export default function Home() {
       />
       <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
       <SongList />
+      <ArrayRender />
     </>
   );
 }
