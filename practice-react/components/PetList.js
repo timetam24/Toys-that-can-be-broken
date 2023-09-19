@@ -1,10 +1,18 @@
 import React, { useState, useRef } from "react";
 import CreatePet from "./CreatePet";
 
-const Pet = ({ pet, onRemove }) => {
+const Pet = ({ pet, onRemove, onToggle }) => {
   return (
     <li>
-      {pet.name}는 {pet.species}입니다. 그리고 {pet.age}살 입니다.
+      {pet.name}는{" "}
+      <b
+        style={{ cursor: "pointer", color: pet.active ? "red" : "black" }}
+        onClick={() => onToggle(pet.id)}
+      >
+        {" "}
+        {pet.species}
+      </b>
+      입니다. 그리고 {pet.age}살 입니다.
       <button onClick={() => onRemove(pet.id)}>삭제</button>
     </li>
   );
@@ -25,11 +33,11 @@ const PetList = () => {
   };
 
   const [pets, setPets] = useState([
-    { name: "벨라", species: "고양이", age: "5", id: 111 },
-    { name: "루시", species: "강아지", age: "3", id: 112 },
-    { name: "데이지", species: "토끼", age: "2", id: 113 },
-    { name: "몰리", species: "고양이", age: "1", id: 114 },
-    { name: "매기", species: "강아지", age: "6", id: 115 },
+    { name: "벨라", species: "고양이", age: "5", id: 111, active: true },
+    { name: "루시", species: "강아지", age: "3", id: 112, active: false },
+    { name: "데이지", species: "토끼", age: "2", id: 113, active: false },
+    { name: "몰리", species: "고양이", age: "1", id: 114, active: false },
+    { name: "매기", species: "강아지", age: "6", id: 115, active: false },
   ]);
 
   const nextId = useRef(116);
@@ -57,6 +65,12 @@ const PetList = () => {
     setPets(pets.filter((pet) => pet.id !== id));
   };
 
+  const onToggle = (id) => {
+    setPets(
+      pets.map((pet) => (pet.id === id ? { ...pet, active: !pet.active } : pet))
+    );
+  };
+
   return (
     <>
       <CreatePet
@@ -68,7 +82,7 @@ const PetList = () => {
       />
       <ul>
         {pets.map((pet) => (
-          <Pet pet={pet} key={pet.id} onRemove={onRemove} />
+          <Pet pet={pet} key={pet.id} onRemove={onRemove} onToggle={onToggle} />
         ))}
       </ul>
     </>
