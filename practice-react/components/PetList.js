@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
 import CreatePet from "./CreatePet";
 
-const Pet = ({ pet }) => {
+const Pet = ({ pet, onRemove }) => {
   return (
     <li>
       {pet.name}는 {pet.species}입니다. 그리고 {pet.age}살 입니다.
+      <button onClick={() => onRemove(pet.id)}>삭제</button>
     </li>
   );
 };
@@ -52,6 +53,10 @@ const PetList = () => {
     nextId.current += 1;
   };
 
+  const onRemove = (id) => {
+    setPets(pets.filter((pet) => pet.id !== id));
+  };
+
   return (
     <>
       <CreatePet
@@ -63,7 +68,7 @@ const PetList = () => {
       />
       <ul>
         {pets.map((pet) => (
-          <Pet pet={pet} key={pet.id} />
+          <Pet pet={pet} key={pet.id} onRemove={onRemove} />
         ))}
       </ul>
     </>
