@@ -3,13 +3,8 @@ import CreatePet from "./CreatePet";
 
 const Pet = ({ pet, onRemove, onToggle }) => {
   useEffect(() => {
-    console.log("pet 값이 설정됨");
     console.log(pet);
-    return () => {
-      console.log("pet이 바뀌기 전..");
-      console.log(pet);
-    };
-  }, [pet]);
+  });
 
   return (
     <li>
