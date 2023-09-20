@@ -3,12 +3,13 @@ import CreatePet from "./CreatePet";
 
 const Pet = ({ pet, onRemove, onToggle }) => {
   useEffect(() => {
-    console.log("컴포넌트가 화면에 나타남");
-
+    console.log("pet 값이 설정됨");
+    console.log(pet);
     return () => {
-      console.log("컴포넌트가 화면에서 사라짐");
+      console.log("pet이 바뀌기 전..");
+      console.log(pet);
     };
-  }, []);
+  }, [pet]);
 
   return (
     <li>
