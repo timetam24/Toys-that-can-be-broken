@@ -1,7 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import CreatePet from "./CreatePet";
 
 const Pet = ({ pet, onRemove, onToggle }) => {
+  useEffect(() => {
+    console.log("컴포넌트가 화면에 나타남");
+
+    return () => {
+      console.log("컴포넌트가 화면에서 사라짐");
+    };
+  }, []);
+
   return (
     <li>
       {pet.name}는{" "}
