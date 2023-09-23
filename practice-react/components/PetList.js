@@ -1,10 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import CreatePet from "./CreatePet";
+
+const countActivePets = (pets) => {
+  console.log("활성 펫 수를 세는 중...");
+  return pets.filter((pet) => pet.active).length;
+};
 
 const Pet = ({ pet, onRemove, onToggle }) => {
   useEffect(() => {
+    console.log("pet 값이 설정됨");
     console.log(pet);
-  });
+    return () => {
+      console.log("pet 가 바뀌기 전..");
+      console.log(pet);
+    };
+  }, [pet]);
 
   return (
     <li>
@@ -75,6 +85,7 @@ const PetList = () => {
     );
   };
 
+  const count = useMemo(() => countActivePets(pets), [pets]);
   return (
     <>
       <CreatePet
@@ -89,6 +100,7 @@ const PetList = () => {
           <Pet pet={pet} key={pet.id} onRemove={onRemove} onToggle={onToggle} />
         ))}
       </ul>
+      <div>활성 펫 수: {count}</div>
     </>
   );
 };
